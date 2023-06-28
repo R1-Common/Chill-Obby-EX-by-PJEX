@@ -1,0 +1,91 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Chill Obby EX",
+   LoadingTitle = "PJex",
+   LoadingSubtitle = "by PJEX",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "ChillObbyPJEX"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+Rayfield:Notify({
+   Title = "Execution",
+   Content = "Thanks For Using PJex Exploits Gui",
+   Duration = 6.5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "PJEX IS SO COOL!",
+         Callback = function()
+         print("OMG I LOVE U")
+      end
+   },
+},
+})
+
+local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+local Button = MainTab:CreateButton({
+   Name = "Get All Badges",
+   Callback = function()
+lvl = {1, 5, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60}
+for i, v in next, lvl do
+	if v then
+		game.ReplicatedStorage.Honeypot.Internal.RemoteStorage["LevelUp - RemoteEvent"]:FireServer(v)
+		wait(1)
+	end
+end
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Give Normal LuckyBlock",
+   Callback = function()
+   local args = {
+    [1] = "LuckyBlock"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Honeypot"):WaitForChild("Internal"):WaitForChild("RemoteStorage"):WaitForChild("GiveLuckyBlock - RemoteEvent"):FireServer(unpack(args))
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Give LuckyBlock Omega",
+   Callback = function()
+   local args = {
+    [1] = "LuckyBlockMega"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Honeypot"):WaitForChild("Internal"):WaitForChild("RemoteStorage"):WaitForChild("GiveLuckyBlock - RemoteEvent"):FireServer(unpack(args))
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Give LuckyBlock Rainbow",
+   Callback = function()
+   local args = {
+    [1] = "LuckyBlockRainbow"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Honeypot"):WaitForChild("Internal"):WaitForChild("RemoteStorage"):WaitForChild("GiveLuckyBlock - RemoteEvent"):FireServer(unpack(args))
+   end,
+})
